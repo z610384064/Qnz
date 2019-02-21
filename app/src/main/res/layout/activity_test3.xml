@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_test3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/progress_line"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.rd.qnz.Test">
+
+    <RelativeLayout
+        android:id="@+id/incl"
+        android:layout_width="match_parent"
+        android:layout_height="140px"
+        android:background="@color/productcontent_title_background"
+        >
+        <ImageView
+            android:id="@+id/actionbar_side_left_iconfont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:src="@drawable/iv_productcontent_left"
+            />
+
+        <TextView
+            android:id="@+id/actionbar_side_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:maxLines="1"
+            android:text="@string/main_tab_text1"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <!-- 分享图标,一开始隐藏着,位于右边-->
+        <ImageView
+            android:id="@+id/actionbar_side_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingRight="15dp"
+            android:src="@drawable/iv_productcontent_share"
+            />
+
+    </RelativeLayout>
+
+
+    <com.rd.qnz.util.DragLayout
+        android:id="@+id/draglayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <FrameLayout
+            android:id="@+id/first"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <FrameLayout
+            android:id="@+id/second"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.rd.qnz.util.DragLayout>
+
+
+    <!-- 立即投资的布局-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/app_color"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/product_tender_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_color"
+            android:gravity="center"
+            android:text="立即投资"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <LinearLayout
+            android:id="@+id/countdown_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_color"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/describe_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5.0dip"
+                android:text="距离开投还有 "
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/days_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="--天"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/hours_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--小时"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/minutes_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="--分"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/seconds_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--秒"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

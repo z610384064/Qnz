@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="43px"
+        android:src="@drawable/login_second_left"
+        android:layout_marginTop="95px"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/reg_linear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="150px"
+                    android:layout_centerHorizontal="true"
+                    android:text="已发送短信到手机号"
+                    android:textColor="@color/home_text"
+                    android:textSize="16sp" />
+
+
+        <LinearLayout
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text1"
+            android:gravity="center"
+            android:layout_marginTop="20px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="150****3611"
+                android:textColor="@color/app_color"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=",请注意查收"
+                android:textColor="@color/home_text"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/duanxin"
+                android:layout_marginTop="92px"
+                android:layout_marginLeft="43px"
+                android:layout_marginRight="43px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line1"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/reg_verify_linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="174px"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/login_edit"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/reg_verify"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/reg_verify_btn"
+                        android:background="@color/white"
+                        android:hint="@string/reg_text_verify"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:singleLine="true"
+                        android:textColorHint="@color/hint_color"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/reg_verify_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/reg_verify"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="15dp"
+                        android:text="@string/reg_btn_submit"
+                        android:textColor="@color/home_text"
+                        android:textSize="14dp" />
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:id="@+id/reg_password_linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="174px"
+                    android:layout_marginTop="57px"
+                    android:background="@drawable/login_edit"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/reg_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toLeftOf="@+id/reg_light_icon"
+                        android:background="@color/white"
+                        android:hint="输入8~20位字符登录密码"
+                        android:maxLength="20"
+                        android:inputType="textPhonetic"
+                        android:singleLine="true"
+                        android:textColorHint="@color/hint_color"
+                        android:textSize="14dp" />
+
+
+                    <ImageButton
+                        android:id="@+id/reg_light_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/eye_default_btn1" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/tuijianren"
+                android:layout_width="match_parent"
+                android:layout_height="174px"
+                android:layout_marginLeft="43px"
+                android:layout_marginRight="43px"
+                android:layout_below="@+id/duanxin"
+                android:layout_marginTop="57px"
+                android:background="@drawable/login_edit"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/reg_code_or_phonenumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/white"
+                    android:hint="推荐人手机号（选填）"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:textColorHint="@color/hint_color"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/reg_secces_btn"
+                android:layout_width="match_parent"
+                android:layout_height="144px"
+                android:layout_below="@id/tuijianren"
+                android:layout_marginLeft="43px"
+                android:layout_marginRight="43px"
+                android:layout_marginTop="57px"
+                android:background="@drawable/button_org_grauly"
+                android:text="@string/reg_btn_secces"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reg_secces_btn"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="43px"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/reg_checkBox"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/pitchon_btn" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="我已阅读并同意"
+                    android:textColor="@color/home_text"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:id="@+id/reg_xieyi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="《钱内助注册协议》"
+                    android:textColor="@color/app_text"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ce_ping_result"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.rd.qnz.mine.CePingResultAct">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/home_text2"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:textSize="16sp"
+        android:text="您的风险评级为"/>
+
+    <TextView
+        android:id="@+id/tv_dengji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:textColor="@color/app_color"
+        android:text="保守型"/>
+
+    <TextView
+        android:id="@+id/tv_descibe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="20dp"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:textColor="@color/home_text2"
+        android:text="保守型"/>
+    <Button
+        android:id="@+id/btn_touzi"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tv_last"
+        android:layout_centerInParent="true"
+        android:layout_height="40dp"
+        android:layout_margin="30dp"
+        android:background="@drawable/button_org_big"
+        android:textColor="@color/white"
+        android:text="前去投资"/>
+    <Button
+        android:id="@+id/btn_ceping"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tv_last"
+        android:layout_centerInParent="true"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/button_org_big"
+        android:textColor="@color/white"
+        android:text="重新测评"/>
+
+</LinearLayout>

@@ -1,0 +1,92 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+android {
+//    compileSdkVersion 24
+//    buildToolsVersion "24.0.3"
+//    compileSdkVersion 25
+//    buildToolsVersion "25.0.2"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+    useLibrary 'org.apache.http.legacy'
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    defaultConfig {
+        applicationId "com.rd.qnz"
+        minSdkVersion 14
+        targetSdkVersion 23
+
+        multiDexEnabled true  //方法超过64K需要设置
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    signingConfigs {
+        release {
+//            storeFile file("F:\\qnz.keystore")
+            storeFile file("D:\\workpace\\qnz.keystore")
+            storePassword "123456"
+            keyAlias "钱内助"
+            keyPassword "123456"
+        }
+    }
+
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+
+    buildTypes {
+        /*release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }*/
+
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            signingConfig signingConfigs.release
+            zipAlignEnabled true
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':gallerylibrary')
+    /*compile 'com.android.support:support-v4:24.0.0'*/
+    compile project(':ActionSheetForAndroid')
+    compile project(':swipebacklibrary')
+    compile project(':unicorn')
+    //compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
+    //可以单独使用，不需要依赖下方的扩展包
+    //RxJava扩展支持，根据需要添加
+    //下载管理和上传管理扩展，根据需要添加
+    //    compile 'com.android.support:multidex:1.0.1' //方法超过64K
+    compile 'com.orhanobut:logger:1.15'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.2.5'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.lzy.net:okgo:2.1.2'
+    compile 'com.lzy.net:okrx:0.1.2'
+    compile 'com.lzy.net:okserver:1.1.2'
+    //    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile files('libs/jpush-android_v3.0.3.jar')
+    compile files('libs/jcore-android_v1.1.1.jar')
+
+    compile 'com.yanzhenjie:permission:1.0.5'
+    //6.0动态申请权限
+    compile 'com.github.hotchemi:permissionsdispatcher:2.3.2'
+    apt 'com.github.hotchemi:permissionsdispatcher-processor:2.3.2'
+    //检测内存泄漏
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+}

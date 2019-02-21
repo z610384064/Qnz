@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/qian_bg"
+    android:orientation="vertical"
+   >
+
+
+    <!-- 新布局-->
+    <RelativeLayout
+        android:id="@+id/jiaxi_relativeLayout"
+        android:layout_width="990px"
+        android:layout_height="338px"
+        android:background="@drawable/redpacked_red"
+        android:layout_marginLeft="43px"
+        android:layout_marginRight="43px"
+         android:layout_marginTop="20px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_jiaxi_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="52px"
+            android:paddingTop="47px"
+            android:textColor="@color/home_text2"
+            android:textSize="18sp"
+            android:text="投资红包"/>
+        <TextView
+            android:id="@+id/tv_jiaxi_validDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_jiaxi_name"
+            android:paddingTop="28px"
+            android:paddingLeft="52px"
+            android:textColor="@color/home_text"
+            android:textSize="14sp"
+            android:text="2017"/>
+
+        <TextView
+            android:id="@+id/tv_jiaxi_timeLimit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_jiaxi_validDate"
+            android:paddingTop="10px"
+            android:paddingLeft="52px"
+            android:textColor="@color/home_text"
+            android:textSize="14sp"
+            android:text="期限>=30"/>
+
+        <TextView
+            android:id="@+id/tv_jiaxi_moneyLimit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_jiaxi_timeLimit"
+            android:layout_below="@+id/tv_jiaxi_validDate"
+            android:paddingTop="10px"
+            android:paddingLeft="10px"
+            android:textColor="@color/home_text"
+            android:textSize="14sp"
+            android:text="投资金额"/>
+
+
+        <TextView
+            android:id="@+id/tv_jiaxi_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_jiaxi_timeLimit"
+            android:paddingTop="10px"
+            android:paddingLeft="52px"
+            android:textColor="@color/home_text"
+            android:textSize="14sp"
+            android:text="加息时长"/>
+
+        <TextView
+            android:id="@+id/tv_jiaxi_apr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="¥ 100"
+            android:paddingRight="60px"
+            android:paddingTop="47px"
+            android:textColor="@color/redpacket_money"
+            android:textSize="28sp"/>
+        <ImageView
+            android:id="@+id/iv_jiaxi_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/xuanzhong"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"/>
+
+        <ImageView
+            android:id="@+id/iv_redusestatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/keshiyong"
+            android:layout_toLeftOf="@+id/iv_jiaxi_icon"
+            android:layout_marginRight="20px"
+            android:layout_alignParentBottom="true"/>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

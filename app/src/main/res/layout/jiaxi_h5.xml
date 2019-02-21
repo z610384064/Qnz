@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/progress_line"
+    android:orientation="vertical">
+
+
+    <WebView
+        android:id="@+id/my_redpackets_webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       />
+
+    <ListView
+        android:id="@+id/my_redpackets_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/incl"
+        android:background="@null"
+        android:visibility="gone"
+        android:divider="@null" />
+
+    <!-- 没有数据的时候显示的布局 -->
+    <LinearLayout
+        android:id="@+id/no_award"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/incl"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/no_award_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/noaward" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ImageTranslucentTheme" parent="@android:style/Theme.NoTitleBar"><!-- Theme.AppCompat.Light.NoActionBar-->
+        <item name="android:windowTranslucentStatus">true</item>  <!-- 顶部状态栏透明-->
+        <item name="android:windowTranslucentNavigation">false</item>  <!-- 虚拟键不透明-->
+
+    </style>
+
+</resources>

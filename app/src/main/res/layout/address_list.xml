@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/qian_bg"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/incl"
+        layout="@layout/main_top" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/incl"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:id="@+id/address_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/incl"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/rel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/address_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@+id/address_phone"
+                android:layout_toStartOf="@+id/address_phone"
+                android:text="加载中..."
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/address_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/address_name"
+                android:text="加载中..."
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/address_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/address_phone"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:maxLines="9"
+                android:text="加载中..."
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/line_color" />
+
+        <RelativeLayout
+            android:id="@+id/revise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/revise_iv"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:layout_marginRight="2dp"
+                android:layout_toLeftOf="@+id/revise_address"
+                android:layout_toStartOf="@+id/revise_address"
+                android:src="@drawable/revise" />
+
+            <TextView
+                android:id="@+id/revise_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/del_iv"
+                android:layout_toStartOf="@+id/del_iv"
+                android:text="编辑"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/del_iv"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:layout_marginRight="2dp"
+                android:layout_toLeftOf="@+id/delete_address"
+                android:layout_toStartOf="@+id/delete_address"
+                android:src="@drawable/delete" />
+
+            <TextView
+                android:id="@+id/delete_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="删除"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_add_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_below="@+id/incl"
+        android:background="@color/white"
+        android:visibility="gone"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:id="@+id/iv_jia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/add_bank"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/iv_jia"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:text="请添加收货地址"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

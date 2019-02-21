@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/progress_line"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/incl"
+        layout="@layout/main_top" />
+
+    <LinearLayout
+        android:id="@+id/balance_withdraw_withdraw_base_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/balance_withdraw_can_withdraw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="可提现金额：0 元"
+                android:textColor="@color/home_text2"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:id="@+id/balance_withdraw_no_real_lay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/balance_withdraw_no_real_icon"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/no_real_icon" />
+
+                <TextView
+                    android:id="@+id/balance_withdraw_no_real_intro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3dp"
+                    android:layout_toRightOf="@+id/balance_withdraw_no_real_icon"
+                    android:text="完善银行卡信息"
+                    android:textColor="#ff0000"
+                    android:textSize="14dp" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/white"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/balance_withdraw_money_lay"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:gravity="center_vertical">
+
+                <EditText
+                    android:id="@+id/balance_withdraw_money_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toLeftOf="@+id/text"
+                    android:background="@color/white"
+                    android:hint="请输入提现金额"
+                    android:inputType="numberDecimal"
+                    android:textColorHint="@color/hint_color"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="元"
+                    android:textColor="@color/home_text"
+                    android:textSize="15dp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/line_color" />
+
+            <RelativeLayout
+                android:id="@+id/balance_withdraw_password_lay"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_below="@+id/balance_withdraw_money_lay"
+                android:gravity="center_vertical">
+
+                <EditText
+                    android:id="@+id/balance_withdraw_password_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toLeftOf="@+id/balance_withdraw_forget"
+                    android:background="@null"
+                    android:hint="请输入交易密码"
+                    android:password="true"
+                    android:textColorHint="@color/hint_color"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/balance_withdraw_forget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="忘记密码"
+                    android:textColor="@color/home_text"
+                    android:textSize="14dp" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/balance_withdraw_to_card_lay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/balance_withdraw_to_card_intro_first"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="提现至："
+                android:textColor="@color/home_text"
+                android:textSize="14dp" />
+
+            <ImageView
+                android:id="@+id/balance_withdraw_to_card_icon"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/balance_withdraw_to_card_intro_first"
+                android:src="@drawable/zhongguo" />
+
+            <TextView
+                android:id="@+id/balance_withdraw_to_card_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/balance_withdraw_to_card_icon"
+                android:text="中国银行（尾号8888）"
+                android:textColor="@color/home_text"
+                android:textSize="14dp" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="本月已提现"
+                android:textColor="@color/home_text"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/cash_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="--"
+                android:textColor="@color/app_color"
+                android:textSize="14dp" />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="笔 超过5笔每笔收取2元手续费"
+                android:textColor="@color/home_text"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/balance_withdraw_bottom_btn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_org_big"
+            android:gravity="center"
+            android:text="确认提现"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+
+    </LinearLayout>
+
+    <!-- 提现成功 -->
+    <RelativeLayout
+        android:id="@+id/balance_withdraw_withdraw_success_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/balance_withdraw_success_icon"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/balance_withdraw_success_icon" />
+
+        <TextView
+            android:id="@+id/balance_withdraw_success_strInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/balance_withdraw_success_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="提现成功，等待处理"
+            android:textColor="#2a7b17"
+            android:textSize="19dp" />
+
+        <TextView
+            android:id="@+id/balance_withdraw_success_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/balance_withdraw_success_strInfo"
+            android:layout_below="@+id/balance_withdraw_success_strInfo"
+            android:layout_marginTop="8dp"
+            android:text="金额：0元"
+            android:textColor="#A0A0A0" />
+
+        <TextView
+            android:id="@+id/balance_withdraw_success_bankcard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/balance_withdraw_success_strInfo"
+            android:layout_below="@+id/balance_withdraw_success_money"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:text="提现至：工商银行（尾号8888）"
+            android:textColor="#A0A0A0" />
+
+        <Button
+            android:id="@+id/balance_withdraw_konw_btn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/balance_withdraw_success_bankcard"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_org_big"
+            android:gravity="center"
+            android:text="我知道了"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/balance_withdraw_success_bottom_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/balance_withdraw_konw_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:text="如绑定银行卡开通余额变动通知，到帐后会有短信提醒"
+            android:textSize="12dp" />
+        <!--                 android:layout_alignParentRight="true" -->
+
+    </RelativeLayout>
+
+    <!-- 提现失败 -->
+    <RelativeLayout
+        android:id="@+id/balance_withdraw_withdraw_fail_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/balance_withdraw_fail_icon"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/balance_withdraw_fail_icon" />
+
+        <TextView
+            android:id="@+id/balance_withdraw_fail_strInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/balance_withdraw_fail_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="提现失败"
+            android:textColor="#f75555"
+            android:textSize="22dp" />
+
+        <TextView
+            android:id="@+id/balance_withdraw_fail_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/balance_withdraw_fail_strInfo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="当前账户余额：0.00"
+            android:textColor="#A0A0A0" />
+
+        <Button
+            android:id="@+id/balance_withdraw_fail_konw_btn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/balance_withdraw_fail_money"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_org_big"
+            android:gravity="center"
+            android:text="我知道了"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/balance_withdraw_fail_bottom_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/balance_withdraw_fail_konw_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:text="可能原因" />
+
+    </RelativeLayout>
+
+</LinearLayout>

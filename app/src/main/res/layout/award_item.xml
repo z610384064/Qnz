@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/award_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:text="--"
+            android:textColor="@color/home_text"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/award_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/award_name"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:text="--"
+            android:textColor="@color/tenderr_tex"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/award_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:text="--"
+            android:textColor="@color/home_text_org"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/award_addr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/award_money"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:text="--"
+            android:textColor="@color/tenderr_tex"
+            android:textSize="12dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rel"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:background="@color/line_color" />
+
+</RelativeLayout>

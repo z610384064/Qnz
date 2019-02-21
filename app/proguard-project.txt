@@ -1,0 +1,369 @@
+#指定代码的压缩级别
+-optimizationpasses 5
+
+-dontusemixedcaseclassnames
+
+-dontskipnonpubliclibraryclasses
+
+-dontoptimize
+
+-dontpreverify
+
+-verbose
+
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+-keepattributes *Annotation*
+
+
+#-libraryjars   libs/armeabi/libbspatch.so
+#-libraryjars   libs/armeabi/libjpush163.so
+#-libraryjars   libs/armeabi/libweibosdkcore.so
+#-libraryjars   libs/mips/libweibosdkcore.so
+#-libraryjars   libs/x86/libweibosdkcore.so
+#-libraryjars   libs/android-support-v4.jar
+#-libraryjars   libs/bcprov-jdk16-146.jar
+#-libraryjars   libs/gson-2.1.jar
+#-libraryjars   libs/jasypt-1.7.1.jar
+#-libraryjars   libs/jpush-sdk-release1.6.3.jar
+#-libraryjars   libs/libammsdk.jar
+#-libraryjars   libs/nineoldandroids-2.4.0.jar
+#-libraryjars   libs/securepay-2.5.0.jar
+#-libraryjars   libs/mta-sdk-1.6.2.jar
+#-libraryjars   libs/open_sdk_r4889.jar
+#-libraryjars   libs/umeng-analytics-v5.2.4.jar
+#-libraryjars   libs/umeng-update-v2.5.0.jar
+#-libraryjars   libs/weibosdkcore.jar     #微博jar包不要混淆
+-keep class com.sina.weibo.sdk.** { *; }         #微博报下所有类及类里面的内容都不要混淆
+#-libraryjars   libs/ack-1.0.jar
+-keep class com.** { *; }         #爱财客下所有类及类里面的内容都不要混淆
+
+# 保持哪些类不被混淆
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+-keep public class com.alipay.android.app.*{ *; }
+
+#忽略警告
+-ignorewarnings
+
+##记录生成的日志数据,gradle build时在本项目根目录输出##
+
+#apk 包内所有 class 的内部结构
+-dump class_files.txt
+#未混淆的类和成员
+-printseeds seeds.txt
+#列出从 apk 中删除的代码
+-printusage unused.txt
+#混淆前后的映射
+-printmapping mapping.txt
+
+#如果不想混淆 keep 掉
+-keep class com.lippi.recorder.iirfilterdesigner.** {*; }
+#友盟
+-keep class com.umeng.**{*;}
+#项目特殊处理代码
+
+#忽略警告
+-dontwarn com.lippi.recorder.utils**
+#保留一个完整的包
+-keep class com.lippi.recorder.utils.** {*;}
+-keep class  com.lippi.recorder.utils.AudioRecorder{*;}
+
+#如果引用了v4或者v7包
+-dontwarn android.support.**
+
+#-libraryjars libs/pgyer_sdk_x.x.jar
+-dontwarn com.pgyersdk.**
+-keep class com.pgyersdk.** { *; }
+
+#bugly
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
+
+###volley
+#-libraryjars libs/volley.jar
+-keep class com.android.volley.** {*;}
+-keep class com.android.volley.toolbox.** {*;}
+-keep class com.android.volley.Response$* { *; }
+-keep class com.android.volley.Request$* { *; }
+-keep class com.android.volley.RequestQueue$* { *; }
+-keep class com.android.volley.toolbox.HurlStack$* { *; }
+-keep class com.android.volley.toolbox.ImageLoader$* { *; }
+
+
+
+-keep class com.google.common.base.**{*;}
+
+-keep class com.rd.qnz.http.bean.** { *; }
+##---------------Begin: proguard configuration for Gson  ----------
+# Gson uses generic type information stored in a class file when working with fields. Proguard
+# removes such information by default, so configure it to keep all of it.
+
+# Gson specific classes
+
+#-keep class com.google.gson.stream.** { *; }
+# Application classes that will be serialized/deserialized over Gson
+
+-keep class com.tencent.mm.sdk.openapi.WXMediaMessage {*;}
+-keep class com.tencent.mm.sdk.openapi.** implements com.tencent.mm.sdk.openapi.WXMediaMessage$IMediaObject {*;}
+
+# ------ XUtils框架 --------
+-keep class * extends java.lang.annotation.Annotation { *; }
+-keep class com.lidroid.xutils.** {*;}
+
+#renren
+-keep class com.renn.rennsdk.**{*;}
+
+#QQ Connect
+-keep class com.tencent.open.TDialog$*
+-keep class com.tencent.open.TDialog$* {*;}
+-keep class com.tencent.open.PKDialog
+-keep class com.tencent.open.PKDialog {*;}
+-keep class com.tencent.open.PKDialog$*
+-keep class com.tencent.open.PKDialog$* {*;}
+
+#yixin
+-keep class im.yixin.sdk.api.YXMessage {*;}
+-keep class im.yixin.sdk.api.** implements im.yixin.sdk.api.YXMessage$YXMessageData{*;}
+
+
+-dontwarn android.support.v4.**
+-keep class android.support.v4.** { *; }
+-keep public class * extends android.support.v4.**
+-keep public class * extends android.app.Fragment
+
+#ACRA specifics
+# we need line numbers in our stack traces otherwise they are pretty useless
+-renamesourcefileattribute SourceFile
+-keepattributes SourceFile,LineNumberTable
+
+-keepclassmembers class com.rd.qnz.product.ProductMoreAct$JavascriptInterface{
+  public *;
+}
+
+-keepattributes *JavascriptInterface*
+
+# keep this class so that logging will show 'ACRA' and not a obfuscated name like 'a'.
+# Note: if you are removing log messages elsewhere in this file then this isn't necessary
+#-keep class org.acra.**{*;}
+-keep class org.acra.ACRA {
+	*;
+}
+# keep this around for some enums that ACRA needs
+-keep class org.acra.ReportingInteractionMode {
+    *;
+}
+-keepnames class org.acra.sender.HttpSender$** {
+    *;
+}
+-keepnames class org.acra.ReportField {
+    *;
+}
+# keep this otherwise it is removed by ProGuard
+-keep public class org.acra.ErrorReporter{
+    public void addCustomData(java.lang.String,java.lang.String);
+    public void putCustomData(java.lang.String,java.lang.String);
+    public void removeCustomData(java.lang.String);
+}
+# keep this otherwise it is removed by ProGuard
+-keep public class org.acra.ErrorReporter{
+    public void handleSilentException(java.lang.Throwable);
+}
+-keepclasseswithmembers class * {
+    native <methods>;
+}
+
+####混淆保护自己项目的部分代码以及引用的第三方jar包library-end####
+
+-keep public class * extends android.view.View {
+     public <init>(android.content.Context);
+     public <init>(android.content.Context, android.util.AttributeSet);
+     public <init>(android.content.Context, android.util.AttributeSet, int);
+     public void set*(...);
+}
+
+#保持自定义控件类不被混淆
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+#保持 Serializable 不被混淆
+-keepnames class * implements java.io.Serializable
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+#保持 Serializable 不被混淆并且enum 类也不被混淆
+-keepclassmembers class * implements java.io.Serializable {
+     static final long serialVersionUID;
+     private static final java.io.ObjectStreamField[] serialPersistentFields;
+     !static !transient <fields>;
+     !private <fields>;
+     !private <methods>;
+     private void writeObject(java.io.ObjectOutputStream);
+     private void readObject(java.io.ObjectInputStream);
+     java.lang.Object writeReplace();
+     java.lang.Object readResolve();
+}
+
+-dontwarn **HoneycombMR2
+-dontwarn **CompatICS
+-dontwarn **Honeycomb
+-dontwarn **CompatIcs*
+-dontwarn **CompatFroyo
+-dontwarn **CompatGingerbread
+-dontwarn android.net.http.**
+
+-dontwarn org.xmlpull.v1.XmlPullParser
+-dontwarn org.xmlpull.v1.XmlSerializer
+
+-keep public class com.umeng.example.R$*{
+    public static final int *;
+}
+-keepclassmembers class * {
+   public <init>(org.json.JSONObject);
+}
+-keep public class com.umeng.fb.ui.ThreadView {
+}
+# 连连Demo混淆keep规则，如果使用了Demo中工具包com.yintong.pay.utils下面的类，请对应添加keep规则，否则混下会包签名错误
+-keep public class com.yintong.pay.utils.** {
+    <fields>;
+    <methods>;
+}
+# 连连混淆keep规则，请添加
+-keep class com.yintong.secure.activityproxy.PayIntro$LLJavascriptInterface{*;}
+
+# 连连混淆keep规则
+-keep public class com.yintong.** {
+    <fields>;
+    <methods>;
+}
+# 七鱼
+-dontwarn com.qiyukf.**
+-keep class com.qiyukf.** {*;}
+
+#okhttp
+-dontwarn okhttp3.**
+-keep class okhttp3.**{*;}
+
+#okio
+-dontwarn okio.**
+-keep class okio.**{*;}
+
+-keepclassmembers public class * extends android.view.View {
+   void set*(***);
+   *** get*();
+}
+#保持自定义控件类不被混淆
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+#保持 native 方法不被混淆
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+#保持 Parcelable 不被混淆
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+-dontwarn com.weibo.sdk.android.WeiboDialog
+-dontwarn android.net.http.SslError
+-dontwarn android.webkit.WebViewClient
+-keep class com.tencent.mm.sdk.openapi.**{*;}
+-keep public class android.net.http.SslError{
+     *;
+}
+-keep public class android.webkit.WebViewClient{
+    *;
+}
+-keep public class android.webkit.WebChromeClient{
+    *;
+}
+-keep public interface android.webkit.WebChromeClient$CustomViewCallback {
+    *;
+}
+-keep public interface android.webkit.ValueCallback {
+    *;
+}
+-keep class * implements android.webkit.WebChromeClient {
+    *;
+}
+
+-keepclassmembers class * {
+     public void *ButtonClicked(android.view.View);
+}
+#不混淆资源类
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+ #不混淆R类
+-keep public class com.jph.android.R$*{
+    public static final int *;
+}
+
+#避免混淆泛型 如果混淆报错建议关掉
+#–keepattributes Signature
+
+#移除log 测试了下没有用还是建议自己定义一个开关控制是否输出日志
+-assumenosideeffects class android.util.Log {
+    public static boolean isLoggable(java.lang.String, int);
+    public static int v(...);
+    public static int i(...);
+    public static int w(...);
+    public static int d(...);
+    public static int e(...);
+}
+
+#如果用用到Gson解析包的，直接添加下面这几行就能成功混淆，不然会报错。
+#gson
+#-libraryjars libs/gson-2.2.2.jar
+-keepattributes Signature
+# Gson specific classes
+-keep class sun.misc.Unsafe { *; }
+# Application classes that will be serialized/deserialized over Gson
+-keep class com.google.gson.examples.android.model.** { *; }
+
+#growingio
+-keep class com.growingio.android.sdk.** {
+ *;
+}
+-dontwarn com.growingio.android.sdk.**
+-keepnames class * extends android.view.View
+
+-keep class * extends android.app.Fragment {
+ public void setUserVisibleHint(boolean);
+ public void onHiddenChanged(boolean);
+ public void onResume();
+ public void onPause();
+}
+-keep class android.support.v4.app.Fragment {
+ public void setUserVisibleHint(boolean);
+ public void onHiddenChanged(boolean);
+ public void onResume();
+ public void onPause();
+}
+-keep class * extends android.support.v4.app.Fragment {
+ public void setUserVisibleHint(boolean);
+ public void onHiddenChanged(boolean);
+ public void onResume();
+ public void onPause();
+}
+
+#极光推送
+-dontwarn cn.jpush.**
+-keep class cn.jpush.** { *; }
+-keep class * extends cn.jpush.android.helpers.JPushMessageReceiver { *; }
+
+-dontwarn cn.jiguang.**
+-keep class cn.jiguang.** { *; }

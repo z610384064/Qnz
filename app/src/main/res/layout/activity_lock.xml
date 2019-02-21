@@ -1,0 +1,102 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/tops"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120px"
+        android:orientation="vertical">
+
+        <com.rd.qnz.view.CircularNetworkImageView
+            android:id="@+id/mine_info_portrait_iv"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_margin="1dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/person" />
+
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60px"
+            android:gravity="center"
+            android:text="***********"
+            android:textColor="@color/home_text2"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40px"
+            android:text=""
+            android:textColor="@color/home_text2"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+    <com.rd.qnz.gustruelock.LockPatternView
+        android:id="@+id/lock_pattern"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tops"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="35dp">
+
+        <TextView
+            android:id="@+id/forget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="130px"
+            android:text="忘记密码"
+            android:textColor="@color/home_text"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/forget_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:text="忘记密码"
+            android:textColor="@color/home_text"
+            android:textSize="18sp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="其他账户登录"
+            android:textColor="@color/home_text"
+            android:textSize="15dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/fingerprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="130px"
+            android:text="指纹解锁"
+            android:textColor="@color/home_text"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+</RelativeLayout>

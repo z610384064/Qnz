@@ -1,0 +1,201 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/progress_line"
+    android:orientation="vertical">
+
+    <include layout="@layout/main_top" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/bank_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/my_bank_no_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/circle_cornera_bankcard">
+
+                    <ImageView
+                        android:id="@+id/my_bank_no_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/add_bank"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                      />
+
+
+
+                    <TextView
+                        android:id="@+id/my_bank_no_btn2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/my_bank_no_btn"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="42dp"
+                        android:layout_marginTop="15dp"
+                        android:text="添加银行卡"
+                        android:textColor="@color/home_text"
+                        android:textSize="16dp" />
+                </RelativeLayout>
+
+                <!-- 我的银行卡界面 -->
+                <RelativeLayout
+                    android:id="@+id/my_bank_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/circle_cornera_bankcardhave"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:id="@+id/my_bank_name_lay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginTop="20dp">
+
+                        <ImageView
+                            android:id="@+id/my_bank_icon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/gongshang" />
+
+                        <TextView
+                            android:id="@+id/my_bank_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="11dp"
+                            android:layout_toRightOf="@+id/my_bank_icon"
+                            android:text="工商银行"
+                            android:textColor="@color/white"
+                            android:textSize="18dp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/my_bank_code_lay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/my_bank_name_lay"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/my_bank_code_xinhao1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="****"
+                            android:textColor="@color/white"
+                            android:textSize="32dp" />
+
+                        <TextView
+                            android:id="@+id/my_bank_code_xinhao2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_toRightOf="@+id/my_bank_code_xinhao1"
+                            android:text="****"
+                            android:textColor="@color/white"
+                            android:textSize="32dp" />
+
+                        <TextView
+                            android:id="@+id/my_bank_code_xinhao3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_toRightOf="@+id/my_bank_code_xinhao2"
+                            android:text="****"
+                            android:textColor="@color/white"
+                            android:textSize="32dp" />
+
+                        <TextView
+                            android:id="@+id/my_bank_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginLeft="12dp"
+                            android:layout_toRightOf="@+id/my_bank_code_xinhao3"
+                            android:gravity="center_vertical"
+                            android:text="0000"
+                            android:textColor="@color/white"
+                            android:textSize="24dp" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/my_bank_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/my_bank_name_lay"
+                        android:layout_alignEnd="@+id/my_bank_code_lay"
+                        android:layout_alignRight="@+id/my_bank_code_lay"
+                        android:text="户名"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/my_bank_add_bank_information"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@+id/my_bank_code_lay"
+                        android:layout_below="@+id/my_bank_code_lay"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="点击完善开户信息"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:lineSpacingMultiplier="1.3"
+                    android:text="温馨提醒"
+                    android:textColor="@color/mine_app"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingMultiplier="1.3"
+                    android:text="@string/mybank_gai2"
+                    android:textColor="@color/home_text"
+                    android:textSize="14dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.rd.qnz"
+    android:versionCode="164"
+    android:versionName="1.6.4">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="25" />
+
+    <permission
+        android:name="com.rd.qnz.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <!-- Required  一些系统要求的权限，如访问网络等 -->
+    <uses-permission android:name="com.rd.qnz.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- 允许程序写入API设置 -->
+    <!--<permissionm-->
+        <!--android:name="android.permission.WRITE_APN_SETTINGS"-->
+        <!--android:protectionLevel="signature" />-->
+    <!-- 允许程序获取当前或最近运行的应用 -->
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 用户唤醒机器的权限! -->
+
+
+    <!-- @@一般权限@@ -->
+    <!-- 允许使用PowerManager的 WakeLocks保持进程在休眠时从屏幕消失 -->
+
+
+    <!-- 允许访问振动设备 -->
+
+
+    <!-- 网络通信 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 允许应用程序访问额外的位置提供命令 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <!-- 允许程序改变网络连接状态 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!-- 获取MAC地址 -->
+    <!-- 允许程序设置壁纸 -->
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <!-- 允许程序改变Wi-Fi连接状态 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- @@特殊权限@@ -->
+    <!-- 允许一个程序打开窗口使用TYPE_SYSTEM_ALERT，显示在其他所有程序的顶层 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 允许程序读取或写入系统设置 -->
+
+
+    <!-- @@未知权限@@ -->
+    <!-- 允许挂载和反挂载文件系统可移动存储 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+    <!-- 可选 -->
+    <!-- 获取logcat日志 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!-- 该程序可以读取设备外部存储空间(内置SD) -->
+
+
+    <!-- 危险组(MICROPHONE) -->
+    <!-- 允许程序录制音频 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- Optional. Required for location feature -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:name=".custom.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:theme="@style/noTitleTheme"
+        tools:replace="android:icon, android:theme">
+        <activity
+            android:name=".NewStartAct"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="growing.53f672a0996ff5aa" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginingAct"
+            android:label="加载启动页"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".MainTabAct"
+            android:label="钱内助"
+            android:screenOrientation="portrait"
+            android:theme="@style/ImageTranslucentTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".community.CropPictureActivity"
+            android:label="头像选取"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.ForgetPasswordAct"
+            android:label="交易密码找回"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.ReceiptAddress"
+            android:label="添加收获地址"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.AutoBuyAct"
+            android:label="自动投标"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name=".mine.Assetsincome"
+            android:label="总资产和我的收益"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.Asset"
+            android:label="总资产"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.Income"
+            android:label="我的收益"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.AddressAct"
+            android:label="收获地址列表"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".product.ProductMoreAct"
+            android:label="更多详情"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.UpdatePasswordAct"
+            android:label="修改交易密码"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.UpdateLoginPasswordAct"
+            android:label="修改登录密码"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".login.Login"
+            android:label="登录(已适配)"
+            android:launchMode="singleTask"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustNothing|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.setting.SettingAct"
+            android:label="设置界面"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.SuggestAct"
+            android:label="问题反馈"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <!-- 手势密码 -->
+        <activity
+            android:name=".gustruelock.LockActivity"
+            android:label="解锁手势密码"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".gustruelock.CheckLockActivity"
+            android:label="重新设置手势密码需要的验证界面"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".gustruelock.CheckLockActivity2"
+            android:label="关闭手势密码需要的验证界面"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".gustruelock.LockSetupActivity"
+            android:label="设置手势密码"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".homepage.AnnouncementAct"
+            android:label="消息公告(已适配)"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".WebViewAct"
+            android:label="网页"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".xutils.WebViewAct2"
+            android:label="网页"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".WebBannerViewAct"
+            android:label="网页"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".view.GalleryUrlActivity"
+            android:configChanges="orientation"
+            android:label="查看图片"
+            android:theme="@style/NoTitleBar" />
+        <activity
+            android:name=".product.ProductContentRedpacketAct"
+            android:label="选择红包"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".product.ProductContentRedpacketFirst"
+            android:label="选择红包(新手)"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".product.ProductYouHui"
+            android:label="申购界面使用优惠"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".homepage.SharePopupWindow"
+            android:label="分享"
+            android:launchMode="singleTop"
+            android:theme="@style/Transparent">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".product.ProductList"
+            android:label="产品列表(已适配)"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".login.Register"
+            android:label="快速注册(已适配)"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.MineAct"
+            android:label="钱袋"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/ActionBarTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".homepage.HomePageActivity2"
+            android:label="首页"
+            android:theme="@style/TranslucentTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.PersonManagementAct"
+            android:label="个人中心"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.UpdateShouShiPasswordAct"
+            android:label="修改手势密码"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".login.RetrievePhoneAct"
+            android:label="找回密码"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.MyTenderRecordListAct"
+            android:label="投资回款记录"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.MyPaymentListAct"
+            android:label="我的回款记录"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.MyRecordList"
+            android:label="回款记录"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.RedpackageAndAwardList"
+            android:label="我的红包及奖励"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.RedAndJiaXiH5"
+            android:label="红包和加息劵的h5界面"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.MyuseMoneyDetailAct"
+            android:label="投资概况"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".product.ProductRecordAct"
+            android:label="项目投资记录"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".product.ProductContentPurchaseAct"
+            android:label="申购页面"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar" />
+        <activity
+            android:name=".product.ProductContentAct"
+            android:label="产品详情"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".product.ProductContentAct3"
+            android:label="产品详情"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".product.ProductContentQuotaBankAct"
+            android:label="银行卡限额"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.NewRealAct"
+            android:label="实名认证"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.CePingResultAct"
+            android:label="风险测评结果"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <!-- 纵向显示 -->
+        <activity
+            android:name=".mine.Recharge"
+            android:label="充值页面"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.FengxianTestAct"
+            android:label="充值页面"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.MyBankCardAct"
+            android:label="我的银行卡"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.AddYiBankAct"
+            android:label="一分钱绑卡"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".community.ActiveAct"
+            android:label="活动中心已适配"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".mine.ServerAct"
+            android:label="联系客服"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".product.LastRepayTimeActivity"
+            android:label="提前还款"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".product.GuaranteeActivity"
+            android:label="安全保障"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name="com.yintong.secure.activity.BaseActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".mine.DepositoryAccountAct"
+            android:label="存管账户"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden|stateAlwaysHidden" />
+
+        <service
+            android:name="com.yintong.secure.service.PayService"
+            android:exported="false" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="559e31e467e58e8169001404" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="qian360" />
+        <meta-data
+            android:name="PGYER_APPID"
+            android:value="52590dd9706122e3ade9a93bb96aa5bc" />
+
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:exported="false"
+            android:theme="@style/MyDialogStyle" />
+
+        <!-- Required SDK核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.rd.qnz" />
+            </intent-filter>
+        </activity>
+
+        <!-- Required SDK 核心功能 -->
+        <!-- 可配置android:process参数将PushService放在其他进程中 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:exported="false"
+            android:process=":mult"
+            tools:replace="android:process">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
+        <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->
+        <service
+            android:name="cn.jpush.android.service.DaemonService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService" />
+
+                <category android:name="com.rd.qnz" />
+            </intent-filter>
+        </service>
+
+        <!-- Required SDK核心功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" /> <!-- Required  显示通知栏 -->
+                <category android:name="com.rd.qnz" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required SDK核心功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.AlarmReceiver"
+            android:exported="false" />
+
+        <!-- User defined.  For test only  用户自定义的广播接收器 -->
+        <receiver
+            android:name=".MyReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="com.rd.qnz" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required  . Enable it you can get statistics data with channel -->
+
+
+        <!--
+         公司   dd38a3e1cb420376bbdb4641
+         个人appkey  e28386802941bb66271c31af
+        -->
+
+        <activity
+            android:name=".mine.AccountBalanceActivity"
+            android:theme="@style/NoTitleBar" />
+        <activity
+            android:name=".mine.MyAccountBalanceListActivity"
+            android:theme="@style/NoTitleBar" />
+        <activity
+            android:name=".mine.MyBalanceWithdrawCash"
+            android:theme="@style/NoTitleBar" />
+        <activity
+            android:name=".mine.CrashRecordActivity"
+            android:theme="@style/NoTitleBar" />
+        <activity
+            android:name=".mine.CrashRecordDetails"
+            android:theme="@style/NoTitleBar"
+            android:label="提现详情页"/>
+        <activity
+            android:name=".mine.RechargeRecordActivity"
+            android:theme="@style/NoTitleBar" />
+        <activity
+            android:name=".mine.SettingOneBankcardActivity"
+            android:theme="@style/translucent" />
+        <activity android:name=".WebViewPayResultActivity" />
+        <activity
+            android:name=".WebBannerViewNeedAccesTokenActivity"
+            android:theme="@style/NoTitleBar" />
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="1103383272" />
+            </intent-filter>
+        </activity>
+        <!-- 可选 -->
+        <activity android:name="com.pgyersdk.activity.FeedbackActivity" />
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".webview.ShareWebViewActivity" />
+
+        <meta-data
+            android:name="design_width"
+            android:value="1080" />
+        <meta-data
+            android:name="design_height"
+            android:value="1920" />
+
+        <activity android:name=".mine.PersonInfomationAct" />
+        <activity
+            android:name=".Test"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.rd.qnz.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".mine.MyAccountBalanceDetails"
+            android:theme="@style/NoTitleBar"></activity>
+    </application>
+
+</manifest>

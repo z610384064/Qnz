@@ -1,0 +1,134 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'android-apt'
+//apply plugin: 'com.growingio.android'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '27.0.3'
+
+
+    useLibrary 'org.apache.http.legacy'
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    defaultConfig {
+        applicationId "com.rd.qnz"
+        minSdkVersion 14
+        targetSdkVersion 25
+        multiDexEnabled true  //方法超过64K需要设置
+		testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+//        resValue("string", "growingio_project_id", "a74544d3179583c3")
+//        resValue("string", "growingio_url_scheme", "growing.53f672a0996ff5aa")
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "dd38a3e1cb420376bbdb4641", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL : "qian360"   //暂时填写默认值即可.
+        ]
+
+
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    signingConfigs {
+        release {
+//            storeFile file("D:\\workpace\\qnz.keystore")
+//            storePassword "123456"
+//            keyAlias "钱内助"
+//            keyPassword "123456"
+        }
+    }
+
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+
+    buildTypes {
+
+
+        debug {
+//            signingConfig signingConfigs.release
+        }
+        release {
+//            signingConfig signingConfigs.release
+            zipAlignEnabled true
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+    }
+}
+
+dependencies {
+    implementation   fileTree(include: ['*.jar'], dir: 'libs')
+    implementation   project(':gallerylibrary')
+
+    implementation  project(':ActionSheetForAndroid')
+    implementation  project(':swipebacklibrary')
+    implementation  project(':unicorn')
+
+    //友盟统计
+    implementation  files('libs/utdid4all-1.0.4.jar')
+    implementation  files('libs/umeng-analytics-v6.1.2.jar')
+
+    //autolayout
+    implementation  'com.zhy:autolayout:1.4.5'
+
+    // 极光推送
+    implementation  'cn.jiguang.sdk:jpush:3.0.9'  // 此处以JPush 3.0.9 版本为例。
+    implementation  'cn.jiguang.sdk:jcore:1.1.7'  // 此处以JCore 1.1.7 版本为例。
+
+    // logger
+    implementation  'com.orhanobut:logger:1.15'
+    // 图表
+    implementation  'com.github.PhilJay:MPAndroidChart:v2.2.5'
+
+    // 网络加载框架
+    implementation  'com.lzy.net:okgo:2.1.2'
+    //RxJava扩展支持，根据需要添加
+    implementation  'com.lzy.net:okrx:0.1.2'
+    //下载管理和上传管理扩展，根据需要添加
+    implementation  'com.lzy.net:okserver:1.1.2'
+    //ButterKnife
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation  'com.jakewharton:butterknife:8.8.1'
+    //方法超过64K
+
+    implementation  'com.mcxiaoke.volley:library:1.0.19'
+
+    // eventbus
+    implementation  'org.greenrobot:eventbus:3.0.0'
+
+    // growingio埋点统计
+//    implementation  'com.growingio.android:vds-android-agent:1.0.3@aar'
+
+    //沉浸式状态栏
+    implementation  'com.github.open-android:SystemBarTint:v1.0.0'
+
+    //6.0动态申请权限
+    implementation  'com.yanzhenjie:permission:1.0.5'
+    implementation  'com.github.hotchemi:permissionsdispatcher:2.3.2'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.3.2'
+
+    //compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
+    //检测内存泄漏
+    //    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    //    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    //    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+
+    implementation  'com.android.support:appcompat-v7:25.3.1'
+    implementation  'com.android.support:support-v4:25.3.1'
+    implementation  'com.android.support:multidex:1.0.1'
+}

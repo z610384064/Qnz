@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+
+    <!-- 底部三个 RadioGroup -->
+    <LinearLayout
+        android:id="@+id/linear_group_buttom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/product_radiogroup_buttom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/product_radiobutton1_buttom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="项目介绍"
+                android:textColor="@drawable/segment_rb_text"
+                android:textSize="15dp" />
+
+            <RadioButton
+                android:id="@+id/product_radiobutton2_buttom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="安全保障"
+                android:textColor="@drawable/segment_rb_text"
+                android:textSize="15dp" />
+
+
+            <RadioButton
+                android:id="@+id/product_radiobutton3_buttom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="投资记录"
+                android:textColor="@drawable/segment_rb_text"
+                android:textSize="15dp" />
+        </RadioGroup>
+
+    </LinearLayout>
+            <com.rd.qnz.view.RedCursorView2
+            android:id="@+id/cursor_view_buttom"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            />
+            <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:padding="20dp"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

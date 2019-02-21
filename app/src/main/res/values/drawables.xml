@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="white" type="drawable">#ffffffff</item>
+    <item name="red" type="drawable">#D91C3C</item>
+    <item name="main_top" type="drawable">#f8f8f8</item>
+</resources>

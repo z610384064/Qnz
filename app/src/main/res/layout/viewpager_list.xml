@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/qian_bg">
+
+    <include
+        android:id="@+id/incl"
+        layout="@layout/main_top" />
+
+
+    <RadioGroup
+        android:id="@+id/product_radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/incl"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/product_radiobutton1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="tab1"
+            android:textColor="@drawable/segment_rb_text"
+            android:textSize="15dp" />
+
+        <RadioButton
+            android:id="@+id/product_radiobutton2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="tab2"
+            android:textColor="@drawable/segment_rb_text"
+            android:textSize="15dp" />
+    </RadioGroup>
+
+    <!-- 还款中 底下红色的线 -->
+    <com.rd.qnz.view.RedCursorView
+        android:id="@+id/cursor_view"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/product_radiogroup" />
+
+    <RelativeLayout
+        android:id="@+id/tender_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cursor_view"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/my_tender_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="项目/投资时间"
+            android:textColor="@color/home_text"
+            android:textSize="14dp" />
+
+
+        <TextView
+            android:id="@+id/my_tender_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:text="收益/投资金额"
+            android:textColor="@color/home_text"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/product_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tender_top_bar"
+        android:layout_marginTop="5dp" />
+</RelativeLayout>
